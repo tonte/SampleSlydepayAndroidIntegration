@@ -96,17 +96,26 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<APIResponse> call, Response<APIResponse> response) {
                 dialog.dismiss();
+                if (response.body().getSuccess()){
+                    Gson gson = new Gson();
+                    String json = gson.toJson(response.body().getResult()); // serializes result to Json
+                    InvoiceDetails result = gson.fromJson(json, InvoiceDetails.class); // deserializes json into InvoiceDetails object
 
-                Gson gson = new Gson();
-                String json = gson.toJson(response.body().getResult()); // serializes result to Json
-                InvoiceDetails result = gson.fromJson(json, InvoiceDetails.class); // deserializes json into InvoiceDetails object
+                    Intent intent = new Intent(MainActivity.this,WebViewActivity.class);
+                    intent.putExtra("url","https://app.slydepay.com/paylive/detailsnew.aspx?pay_token=" +result.getPayToken());
+                    intent.putExtra("orderCode",map.get("orderCode").toString());
+                    intent.putExtra("payToken",result.getPayToken());
 
-                Intent intent = new Intent(MainActivity.this,WebViewActivity.class);
-                intent.putExtra("url","https://app.slydepay.com/paylive/detailsnew.aspx?pay_token=" +result.getPayToken());
-                intent.putExtra("orderCode",map.get("orderCode").toString());
-                intent.putExtra("payToken",result.getPayToken());
-//  Log.d("Info", result.getPayToken());
-                startActivity(intent);
+                    startActivity(intent);
+                }
+                else{
+                    if (response.body().getErrorMessage() != null){
+                        dialog.dismiss();
+                        Toast.makeText(MainActivity.this,response.body().getErrorMessage(),Toast.LENGTH_LONG).show();
+                    }
+                }
+
+
 
             }
 
