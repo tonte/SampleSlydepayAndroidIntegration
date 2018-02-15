@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">SampleSlydepayIntegration</string>
     <string name="title_activity_web_view">WebViewActivity</string>
+    <string name="title_activity_success">Success</string>
 </resources>

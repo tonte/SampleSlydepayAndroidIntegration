@@ -1,4 +1,4 @@
-package slydepay.com.tonte.sampleslydepayintegration;
+package slydepay.com.tonte.sampleslydepayintegration.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -10,7 +10,7 @@ import java.util.List;
  */
 
 
-public class Result {
+public class InvoiceDetails {
 
     @SerializedName("orderCode")
     @Expose

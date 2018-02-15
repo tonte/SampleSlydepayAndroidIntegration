@@ -1,4 +1,4 @@
-package slydepay.com.tonte.sampleslydepayintegration;
+package slydepay.com.tonte.sampleslydepayintegration.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -13,7 +13,7 @@ public class APIResponse {
     private Boolean success;
     @SerializedName("result")
     @Expose
-    private Result result;
+    private Object result;
     @SerializedName("errorMessage")
     @Expose
     private String errorMessage;
@@ -29,11 +29,11 @@ public class APIResponse {
         this.success = success;
     }
 
-    public Result getResult() {
+    public Object getResult() {
         return result;
     }
 
-    public void setResult(Result result) {
+    public void setResult(Object result) {
         this.result = result;
     }
 

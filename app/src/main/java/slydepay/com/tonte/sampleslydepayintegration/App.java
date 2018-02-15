@@ -8,6 +8,8 @@ import android.app.Application;
 
 public class App extends Application{
 
-    public static String API_KEY = "1487280157618";
+    public static String MERCHANT_KEY = "XXXXXXXXX";
+    public static String EMAIL_OR_MOBILE_NUMBER = "XXXXX@gmail.com";
+    public static String CALLBACK_URL = "XXXXXXXXX";
 
 }

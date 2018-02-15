@@ -10,11 +10,27 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="232dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="182dp"
         android:foregroundGravity="center_horizontal"
         android:gravity="center"
-        android:text="PAY 1.00 GHS"
+        android:text="PAY"
         android:textAlignment="textStart"
-        tools:layout_editor_absoluteX="135dp"
-        tools:layout_editor_absoluteY="231dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Enter Amount"
+        android:inputType="numberDecimal"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="3dp" />
 
 </android.support.constraint.ConstraintLayout>
