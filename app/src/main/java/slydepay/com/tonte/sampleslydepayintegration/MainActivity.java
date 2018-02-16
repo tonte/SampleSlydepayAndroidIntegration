@@ -53,12 +53,8 @@ public class MainActivity extends AppCompatActivity {
                     dialog.show();
                     createInvoice();
                 }
-    }
+            }
         });
-
-
-
-
     }
 
 
@@ -105,7 +101,6 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra("url","https://app.slydepay.com/paylive/detailsnew.aspx?pay_token=" +result.getPayToken());
                     intent.putExtra("orderCode",map.get("orderCode").toString());
                     intent.putExtra("payToken",result.getPayToken());
-
                     startActivity(intent);
                 }
                 else{
@@ -114,9 +109,6 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this,response.body().getErrorMessage(),Toast.LENGTH_LONG).show();
                     }
                 }
-
-
-
             }
 
             @Override

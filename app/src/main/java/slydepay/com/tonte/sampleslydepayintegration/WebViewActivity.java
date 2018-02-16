@@ -71,16 +71,14 @@ public class WebViewActivity extends AppCompatActivity {
                    apiClient.checkStatus(map).enqueue(new Callback<APIResponse>() {
                        @Override
                        public void onResponse(Call<APIResponse> call, Response<APIResponse> response) {
-//                           Gson gson = new Gson();
-//                           String json = gson.toJson(response.body().getResult()); // serializes target to Json
-//                           String result = gson.fromJson(json, String.class);
-
+//
                            if (response.body().getSuccess()){
                                String result = response.body().getResult().toString();
                                if (result.equals("CONFIRMED")){
                                    dialog.dismiss();
                                    Intent intent = new Intent(WebViewActivity.this, SuccessActivity.class);
                                    startActivity(intent);
+                                   finish();
                                }
                                else if (result.equals("PENDING")) {
 
