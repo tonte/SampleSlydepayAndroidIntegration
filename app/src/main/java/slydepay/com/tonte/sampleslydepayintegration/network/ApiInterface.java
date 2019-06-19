@@ -20,8 +20,6 @@ public interface ApiInterface {
 
     @POST ("invoice/create")
     Call<APIResponse> createInvoice(@Body Map<String, Object> options);
-    @POST ("invoice/payoptions")
-    Call<APIResponse> payOptions(@Body Map<String, Object> options);
     @POST ("invoice/checkstatus")
     Call<APIResponse> checkStatus(@Body Map<String, Object> options);
 

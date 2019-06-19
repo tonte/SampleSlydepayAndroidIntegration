@@ -4,20 +4,11 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,9 +16,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import slydepay.com.tonte.sampleslydepayintegration.model.APIResponse;
-import slydepay.com.tonte.sampleslydepayintegration.model.PayOption;
 import slydepay.com.tonte.sampleslydepayintegration.network.APIUtils;
-import slydepay.com.tonte.sampleslydepayintegration.network.ApiClient;
 import slydepay.com.tonte.sampleslydepayintegration.network.ApiInterface;
 
 public class WebViewActivity extends AppCompatActivity {
@@ -71,14 +60,12 @@ public class WebViewActivity extends AppCompatActivity {
                    apiClient.checkStatus(map).enqueue(new Callback<APIResponse>() {
                        @Override
                        public void onResponse(Call<APIResponse> call, Response<APIResponse> response) {
-//
+                           dialog.dismiss();
                            if (response.body().getSuccess()){
                                String result = response.body().getResult().toString();
                                if (result.equals("CONFIRMED")){
-                                   dialog.dismiss();
-                                   Intent intent = new Intent(WebViewActivity.this, SuccessActivity.class);
-                                   startActivity(intent);
-                                   finish();
+                                   navigateToSuccessPage();
+
                                }
                                else if (result.equals("PENDING")) {
 
@@ -117,6 +104,12 @@ public class WebViewActivity extends AppCompatActivity {
 
 
 
+    }
+
+    void navigateToSuccessPage(){
+        Intent intent = new Intent(WebViewActivity.this, SuccessActivity.class);
+        startActivity(intent);
+        finish();
     }
 
 }

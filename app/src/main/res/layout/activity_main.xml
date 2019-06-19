@@ -36,7 +36,8 @@
                 android:ems="10"
                 android:hint="Enter Amount"
                 android:inputType="numberDecimal"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:visibility="gone" />
 
             <Button
                 android:id="@+id/button"
@@ -47,7 +48,7 @@
                 android:layout_marginStart="8dp"
                 android:foregroundGravity="center_horizontal"
                 android:gravity="center"
-                android:text="Buy Waakye"
+                android:text="Buy Waakye - GHS 10.00"
                 android:textAlignment="center"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
